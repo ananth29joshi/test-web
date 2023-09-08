@@ -136,6 +136,7 @@ loadPage();
 
 //load dummy api
 document.addEventListener("DOMContentLoaded", () => {
+  console.log(function of dummy api is called);
     const getDataButton = document.getElementById("getDataButton");
     const output = document.getElementById("output");
 

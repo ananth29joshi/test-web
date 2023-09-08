@@ -133,3 +133,26 @@ async function loadPage() {
 }
 
 loadPage();
+
+//load dummy api
+document.addEventListener("DOMContentLoaded", () => {
+    const getDataButton = document.getElementById("getDataButton");
+    const output = document.getElementById("output");
+
+    getDataButton.addEventListener("click", () => {
+        fetch("https://jsonplaceholder.typicode.com/posts/1") // Replace with your API endpoint
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Process the API response data here
+                output.textContent = JSON.stringify(data, null, 2);
+            })
+            .catch(error => {
+                console.error("There was a problem with the fetch operation:", error);
+            });
+    });
+});
